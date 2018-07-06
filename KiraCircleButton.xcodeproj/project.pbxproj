@@ -1,0 +1,588 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4F78963220EF2AAB00359215 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F78963120EF2AAB00359215 /* AppDelegate.m */; };
+		4F78963520EF2AAB00359215 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F78963420EF2AAB00359215 /* ViewController.m */; };
+		4F78963820EF2AAB00359215 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F78963620EF2AAB00359215 /* Main.storyboard */; };
+		4F78963A20EF2AAD00359215 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F78963920EF2AAD00359215 /* Assets.xcassets */; };
+		4F78963D20EF2AAD00359215 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F78963B20EF2AAD00359215 /* LaunchScreen.storyboard */; };
+		4F78964020EF2AAD00359215 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F78963F20EF2AAD00359215 /* main.m */; };
+		4F78964A20EF2AAD00359215 /* KiraCircleButtonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F78964920EF2AAD00359215 /* KiraCircleButtonTests.m */; };
+		4F78965520EF2AAD00359215 /* KiraCircleButtonUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F78965420EF2AAD00359215 /* KiraCircleButtonUITests.m */; };
+		4F78966420EF2B1500359215 /* KiraCircleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F78966320EF2B1500359215 /* KiraCircleButton.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4F78964620EF2AAD00359215 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4F78962520EF2AAB00359215 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4F78962C20EF2AAB00359215;
+			remoteInfo = KiraCircleButton;
+		};
+		4F78965120EF2AAD00359215 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4F78962520EF2AAB00359215 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4F78962C20EF2AAB00359215;
+			remoteInfo = KiraCircleButton;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4F78962D20EF2AAB00359215 /* KiraCircleButton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KiraCircleButton.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F78963020EF2AAB00359215 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4F78963120EF2AAB00359215 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4F78963320EF2AAB00359215 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		4F78963420EF2AAB00359215 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		4F78963720EF2AAB00359215 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4F78963920EF2AAD00359215 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4F78963C20EF2AAD00359215 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4F78963E20EF2AAD00359215 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4F78963F20EF2AAD00359215 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4F78964520EF2AAD00359215 /* KiraCircleButtonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KiraCircleButtonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F78964920EF2AAD00359215 /* KiraCircleButtonTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KiraCircleButtonTests.m; sourceTree = "<group>"; };
+		4F78964B20EF2AAD00359215 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4F78965020EF2AAD00359215 /* KiraCircleButtonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KiraCircleButtonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F78965420EF2AAD00359215 /* KiraCircleButtonUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KiraCircleButtonUITests.m; sourceTree = "<group>"; };
+		4F78965620EF2AAD00359215 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4F78966220EF2B1500359215 /* KiraCircleButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KiraCircleButton.h; sourceTree = "<group>"; };
+		4F78966320EF2B1500359215 /* KiraCircleButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KiraCircleButton.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4F78962A20EF2AAB00359215 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F78964220EF2AAD00359215 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F78964D20EF2AAD00359215 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4F78962420EF2AAB00359215 = {
+			isa = PBXGroup;
+			children = (
+				4F78962F20EF2AAB00359215 /* KiraCircleButton */,
+				4F78964820EF2AAD00359215 /* KiraCircleButtonTests */,
+				4F78965320EF2AAD00359215 /* KiraCircleButtonUITests */,
+				4F78962E20EF2AAB00359215 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4F78962E20EF2AAB00359215 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4F78962D20EF2AAB00359215 /* KiraCircleButton.app */,
+				4F78964520EF2AAD00359215 /* KiraCircleButtonTests.xctest */,
+				4F78965020EF2AAD00359215 /* KiraCircleButtonUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4F78962F20EF2AAB00359215 /* KiraCircleButton */ = {
+			isa = PBXGroup;
+			children = (
+				4F78963020EF2AAB00359215 /* AppDelegate.h */,
+				4F78963120EF2AAB00359215 /* AppDelegate.m */,
+				4F78963320EF2AAB00359215 /* ViewController.h */,
+				4F78963420EF2AAB00359215 /* ViewController.m */,
+				4F78966220EF2B1500359215 /* KiraCircleButton.h */,
+				4F78966320EF2B1500359215 /* KiraCircleButton.m */,
+				4F78963620EF2AAB00359215 /* Main.storyboard */,
+				4F78963920EF2AAD00359215 /* Assets.xcassets */,
+				4F78963B20EF2AAD00359215 /* LaunchScreen.storyboard */,
+				4F78963E20EF2AAD00359215 /* Info.plist */,
+				4F78963F20EF2AAD00359215 /* main.m */,
+			);
+			path = KiraCircleButton;
+			sourceTree = "<group>";
+		};
+		4F78964820EF2AAD00359215 /* KiraCircleButtonTests */ = {
+			isa = PBXGroup;
+			children = (
+				4F78964920EF2AAD00359215 /* KiraCircleButtonTests.m */,
+				4F78964B20EF2AAD00359215 /* Info.plist */,
+			);
+			path = KiraCircleButtonTests;
+			sourceTree = "<group>";
+		};
+		4F78965320EF2AAD00359215 /* KiraCircleButtonUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4F78965420EF2AAD00359215 /* KiraCircleButtonUITests.m */,
+				4F78965620EF2AAD00359215 /* Info.plist */,
+			);
+			path = KiraCircleButtonUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4F78962C20EF2AAB00359215 /* KiraCircleButton */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4F78965920EF2AAD00359215 /* Build configuration list for PBXNativeTarget "KiraCircleButton" */;
+			buildPhases = (
+				4F78962920EF2AAB00359215 /* Sources */,
+				4F78962A20EF2AAB00359215 /* Frameworks */,
+				4F78962B20EF2AAB00359215 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KiraCircleButton;
+			productName = KiraCircleButton;
+			productReference = 4F78962D20EF2AAB00359215 /* KiraCircleButton.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4F78964420EF2AAD00359215 /* KiraCircleButtonTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4F78965C20EF2AAD00359215 /* Build configuration list for PBXNativeTarget "KiraCircleButtonTests" */;
+			buildPhases = (
+				4F78964120EF2AAD00359215 /* Sources */,
+				4F78964220EF2AAD00359215 /* Frameworks */,
+				4F78964320EF2AAD00359215 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4F78964720EF2AAD00359215 /* PBXTargetDependency */,
+			);
+			name = KiraCircleButtonTests;
+			productName = KiraCircleButtonTests;
+			productReference = 4F78964520EF2AAD00359215 /* KiraCircleButtonTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4F78964F20EF2AAD00359215 /* KiraCircleButtonUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4F78965F20EF2AAD00359215 /* Build configuration list for PBXNativeTarget "KiraCircleButtonUITests" */;
+			buildPhases = (
+				4F78964C20EF2AAD00359215 /* Sources */,
+				4F78964D20EF2AAD00359215 /* Frameworks */,
+				4F78964E20EF2AAD00359215 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4F78965220EF2AAD00359215 /* PBXTargetDependency */,
+			);
+			name = KiraCircleButtonUITests;
+			productName = KiraCircleButtonUITests;
+			productReference = 4F78965020EF2AAD00359215 /* KiraCircleButtonUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4F78962520EF2AAB00359215 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = Kira;
+				TargetAttributes = {
+					4F78962C20EF2AAB00359215 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+					4F78964420EF2AAD00359215 = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = 4F78962C20EF2AAB00359215;
+					};
+					4F78964F20EF2AAD00359215 = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = 4F78962C20EF2AAB00359215;
+					};
+				};
+			};
+			buildConfigurationList = 4F78962820EF2AAB00359215 /* Build configuration list for PBXProject "KiraCircleButton" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4F78962420EF2AAB00359215;
+			productRefGroup = 4F78962E20EF2AAB00359215 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4F78962C20EF2AAB00359215 /* KiraCircleButton */,
+				4F78964420EF2AAD00359215 /* KiraCircleButtonTests */,
+				4F78964F20EF2AAD00359215 /* KiraCircleButtonUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4F78962B20EF2AAB00359215 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F78963D20EF2AAD00359215 /* LaunchScreen.storyboard in Resources */,
+				4F78963A20EF2AAD00359215 /* Assets.xcassets in Resources */,
+				4F78963820EF2AAB00359215 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F78964320EF2AAD00359215 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F78964E20EF2AAD00359215 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4F78962920EF2AAB00359215 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F78963520EF2AAB00359215 /* ViewController.m in Sources */,
+				4F78964020EF2AAD00359215 /* main.m in Sources */,
+				4F78966420EF2B1500359215 /* KiraCircleButton.m in Sources */,
+				4F78963220EF2AAB00359215 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F78964120EF2AAD00359215 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F78964A20EF2AAD00359215 /* KiraCircleButtonTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F78964C20EF2AAD00359215 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F78965520EF2AAD00359215 /* KiraCircleButtonUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4F78964720EF2AAD00359215 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4F78962C20EF2AAB00359215 /* KiraCircleButton */;
+			targetProxy = 4F78964620EF2AAD00359215 /* PBXContainerItemProxy */;
+		};
+		4F78965220EF2AAD00359215 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4F78962C20EF2AAB00359215 /* KiraCircleButton */;
+			targetProxy = 4F78965120EF2AAD00359215 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4F78963620EF2AAB00359215 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4F78963720EF2AAB00359215 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4F78963B20EF2AAD00359215 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4F78963C20EF2AAD00359215 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4F78965720EF2AAD00359215 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		4F78965820EF2AAD00359215 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4F78965A20EF2AAD00359215 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZA747HXW4Q;
+				INFOPLIST_FILE = KiraCircleButton/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kira.KiraCircleButton;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4F78965B20EF2AAD00359215 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZA747HXW4Q;
+				INFOPLIST_FILE = KiraCircleButton/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kira.KiraCircleButton;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		4F78965D20EF2AAD00359215 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZA747HXW4Q;
+				INFOPLIST_FILE = KiraCircleButtonTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kira.KiraCircleButtonTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KiraCircleButton.app/KiraCircleButton";
+			};
+			name = Debug;
+		};
+		4F78965E20EF2AAD00359215 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZA747HXW4Q;
+				INFOPLIST_FILE = KiraCircleButtonTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kira.KiraCircleButtonTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KiraCircleButton.app/KiraCircleButton";
+			};
+			name = Release;
+		};
+		4F78966020EF2AAD00359215 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZA747HXW4Q;
+				INFOPLIST_FILE = KiraCircleButtonUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kira.KiraCircleButtonUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = KiraCircleButton;
+			};
+			name = Debug;
+		};
+		4F78966120EF2AAD00359215 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZA747HXW4Q;
+				INFOPLIST_FILE = KiraCircleButtonUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kira.KiraCircleButtonUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = KiraCircleButton;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4F78962820EF2AAB00359215 /* Build configuration list for PBXProject "KiraCircleButton" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F78965720EF2AAD00359215 /* Debug */,
+				4F78965820EF2AAD00359215 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4F78965920EF2AAD00359215 /* Build configuration list for PBXNativeTarget "KiraCircleButton" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F78965A20EF2AAD00359215 /* Debug */,
+				4F78965B20EF2AAD00359215 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4F78965C20EF2AAD00359215 /* Build configuration list for PBXNativeTarget "KiraCircleButtonTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F78965D20EF2AAD00359215 /* Debug */,
+				4F78965E20EF2AAD00359215 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4F78965F20EF2AAD00359215 /* Build configuration list for PBXNativeTarget "KiraCircleButtonUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F78966020EF2AAD00359215 /* Debug */,
+				4F78966120EF2AAD00359215 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4F78962520EF2AAB00359215 /* Project object */;
+}
