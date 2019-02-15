@@ -18,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.button = [[KiraCircleButton alloc] initWithFrame:CGRectMake(150 , 400, 70, 70)];
+    self.button = [[KiraCircleButton alloc] initWithFrame:CGRectMake(150 , 400, 80, 80)];
     [self.view setBackgroundColor:[UIColor blackColor]];
     [self.view addSubview:self.button];
     // Do any additional setup after loading the view, typically from a nib.

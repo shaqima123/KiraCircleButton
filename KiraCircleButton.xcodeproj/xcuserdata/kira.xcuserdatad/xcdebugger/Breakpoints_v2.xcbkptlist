@@ -6,16 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KiraCircleButton/KiraCircleButton.m"
-            timestampString = "552557761.042256"
+            timestampString = "571947895.579217"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "-initUI"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
+            landmarkName = "-doAnimation"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

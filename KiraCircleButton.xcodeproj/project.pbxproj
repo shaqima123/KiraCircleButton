@@ -16,6 +16,7 @@
 		4F78964A20EF2AAD00359215 /* KiraCircleButtonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F78964920EF2AAD00359215 /* KiraCircleButtonTests.m */; };
 		4F78965520EF2AAD00359215 /* KiraCircleButtonUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F78965420EF2AAD00359215 /* KiraCircleButtonUITests.m */; };
 		4F78966420EF2B1500359215 /* KiraCircleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F78966320EF2B1500359215 /* KiraCircleButton.m */; };
+		4F95009E2216B1C000FF61E8 /* AnimationFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F95009D2216B1C000FF61E8 /* AnimationFunction.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,8 @@
 		4F78965620EF2AAD00359215 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F78966220EF2B1500359215 /* KiraCircleButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KiraCircleButton.h; sourceTree = "<group>"; };
 		4F78966320EF2B1500359215 /* KiraCircleButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KiraCircleButton.m; sourceTree = "<group>"; };
+		4F95009C2216B1C000FF61E8 /* AnimationFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimationFunction.h; sourceTree = "<group>"; };
+		4F95009D2216B1C000FF61E8 /* AnimationFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimationFunction.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +118,8 @@
 				4F78963B20EF2AAD00359215 /* LaunchScreen.storyboard */,
 				4F78963E20EF2AAD00359215 /* Info.plist */,
 				4F78963F20EF2AAD00359215 /* main.m */,
+				4F95009C2216B1C000FF61E8 /* AnimationFunction.h */,
+				4F95009D2216B1C000FF61E8 /* AnimationFunction.m */,
 			);
 			path = KiraCircleButton;
 			sourceTree = "<group>";
@@ -267,6 +272,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F95009E2216B1C000FF61E8 /* AnimationFunction.m in Sources */,
 				4F78963520EF2AAB00359215 /* ViewController.m in Sources */,
 				4F78964020EF2AAD00359215 /* main.m in Sources */,
 				4F78966420EF2B1500359215 /* KiraCircleButton.m in Sources */,
