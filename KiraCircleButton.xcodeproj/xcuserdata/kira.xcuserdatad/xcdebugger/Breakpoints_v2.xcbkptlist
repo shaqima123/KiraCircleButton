@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "KiraCircleButton/KiraCircleButton.m"
-            timestampString = "571947895.579217"
+            timestampString = "571996376.67155"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
-            landmarkName = "-doAnimation"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
+            landmarkName = "-setupUI"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

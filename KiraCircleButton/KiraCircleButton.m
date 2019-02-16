@@ -9,8 +9,6 @@
 #import "KiraCircleButton.h"
 #import "AnimationFunction.h"
 
-//最大录制时间
-static float const maxRecordTime = 3.f;
 //初始半径
 static float const startRadius = 40.f;
 //最大半径
@@ -21,12 +19,17 @@ static float const minLineWidth = 4.f;
 static float const maxLineWidth = 8.f;
 
 //放大动画持续时
-static float const scaleDuration = 0.2f;
+static float const scaleDuration = 1.f;
 
 
-@interface KiraCircleButton ()
+@interface KiraCircleButton ()<UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) id<AnimationFunction> animationFunction;
+@property (nonatomic, strong) id<AnimationFunction> scaleAnimationFunction;
+
+@property (nonatomic, strong) UITapGestureRecognizer *tapGesture;
+@property (nonatomic, strong) UILongPressGestureRecognizer *longTapGesture;
+@property (nonatomic, strong) UIPanGestureRecognizer *panGesture;
 
 @property (nonatomic, strong) UIColor * circleBgColor;
 @property (nonatomic, strong) UIColor * circleFgColor;
@@ -42,12 +45,11 @@ static float const scaleDuration = 0.2f;
 @property (nonatomic, strong) UIBezierPath *drawPath;
 @property (nonatomic, strong) UIBezierPath *maskPath;
 
-
-
 @property (nonatomic, assign) CGFloat currentRadius;
 @property (nonatomic, assign) float currentLineWidth;
 
 @property (nonatomic, assign) NSTimeInterval beginTime;
+@property (nonatomic, assign) NSTimeInterval currentTime;
 @property (nonatomic, assign) BOOL isInProgress;
 
 
@@ -67,21 +69,35 @@ static float const scaleDuration = 0.2f;
 - (void)setupData {
     
     self.animationFunction = [[AnimationFunctionEaseOut alloc] init];
+    self.scaleAnimationFunction = [[AnimationFunctionEaseInOut alloc] init];
+    
     self.circleFgColor = [UIColor colorWithRed:0.99 green:0.72 blue:0.04 alpha:1];
     self.circleBgColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.2];
     
 }
 
+- (void)layoutSubviews {
+    self.centerPoint = CGPointMake(self.bounds.size.width * 0.5, self.bounds.size.height * 0.5);
+    [self resetCaptureButton];
+}
+
+
 - (void)setupUI {
-    self.centerPoint = CGPointMake(self.frame.size.width * 0.5, self.frame.size.height * 0.5);
+    self.centerPoint = CGPointMake(self.bounds.size.width * 0.5, self.bounds.size.height * 0.5);
     
     [self setUserInteractionEnabled:YES];
-    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doSomeThingWhenTap)];
-    [self addGestureRecognizer:tap];
+    self.tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doSomeThingWhenTap:)];
+    self.tapGesture.delegate = self;
+    [self addGestureRecognizer:self.tapGesture];
     
-    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(doSomeThingWhenLongTap:)];
-    longPress.minimumPressDuration = 0.2;
-    [self addGestureRecognizer:longPress];
+    self.longTapGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(doSomeThingWhenLongTap:)];
+    self.longTapGesture.minimumPressDuration = 0.2;
+    self.longTapGesture.delegate = self;
+    [self addGestureRecognizer:self.longTapGesture];
+    
+    self.panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(doSomeThingWhenPan:)];
+    self.panGesture.delegate = self;
+    [self addGestureRecognizer:self.panGesture];
     
     //给按钮增加毛玻璃效果
     UIBlurEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleRegular];
@@ -113,10 +129,23 @@ static float const scaleDuration = 0.2f;
     [self updateStatesWithTime:0];
 }
 
+- (void)disableGesture:(Class)gestureClass {
+    if (gestureClass == [UITapGestureRecognizer class]) {
+        self.tapGesture.enabled = NO;
+    }
+    if (gestureClass == [UILongPressGestureRecognizer class]) {
+        self.longTapGesture.enabled = NO;
+    }
+    if (gestureClass == [UIPanGestureRecognizer class]) {
+        self.panGesture.enabled = NO;
+    }
+}
+
+
 - (void)doAnimation {
-    NSTimeInterval currentTime = CACurrentMediaTime() - self.beginTime;
-    CGFloat recordPercent = currentTime / maxRecordTime;
-    [self updateStatesWithTime:currentTime];
+    self.currentTime = CACurrentMediaTime() - self.beginTime;
+    CGFloat recordPercent = self.currentTime / kCaptureButtonMaxRecordTime;
+    [self updateStatesWithTime:self.currentTime];
     if (recordPercent > 1) {
         recordPercent = 1;
         [self endProgress];
@@ -129,7 +158,7 @@ static float const scaleDuration = 0.2f;
     CGFloat fromRadius = startRadius - minLineWidth * 0.5;
     
     CGFloat scalePercent = currentTime / scaleDuration;
-    CGFloat recordPercent = currentTime / maxRecordTime;
+    CGFloat recordPercent = currentTime / kCaptureButtonMaxRecordTime;
 
     if (scalePercent > 1) {
         scalePercent = 1;
@@ -138,7 +167,7 @@ static float const scaleDuration = 0.2f;
         recordPercent = 1;
     }
 
-    scalePercent = [self.animationFunction calculate:scalePercent withType:AnimationFunctionTypeBounce];
+    scalePercent = [self.scaleAnimationFunction calculate:scalePercent withType:AnimationFunctionTypeElastic];
     recordPercent = [self.animationFunction calculate:recordPercent withType:AnimationFunctionTypeBounce];
     
     if (recordPercent) {
@@ -174,17 +203,29 @@ static float const scaleDuration = 0.2f;
     return from + (to - from) * percent;
 }
 
-- (void)doSomeThingWhenTap {
+- (void)doSomeThingWhenTap:(UITapGestureRecognizer *)tap {
     NSLog(@"Im tapped");
+    if ([self.delegate respondsToSelector:@selector(actionTapInCaptureButton:)]) {
+        [self.delegate actionTapInCaptureButton:tap];
+    }
 }
 
 - (void)doSomeThingWhenLongTap:(UILongPressGestureRecognizer *)gesture {
+    if ([self.delegate respondsToSelector:@selector(actionLongPressInCaptureButton:)]) {
+        [self.delegate actionLongPressInCaptureButton:gesture];
+    }
     if (gesture.state == UIGestureRecognizerStateBegan) {
         NSLog(@"Im long tapped start");
         [self startProgress];
     } else if (gesture.state == UIGestureRecognizerStateEnded) {
         NSLog(@"Im long tapped end");
         [self endProgress];
+    }
+}
+
+- (void)doSomeThingWhenPan:(UIPanGestureRecognizer *)pan {
+    if ([self.delegate respondsToSelector:@selector(actionPanInCaptureButton:)]) {
+        [self.delegate actionPanInCaptureButton:pan];
     }
 }
 
@@ -219,4 +260,33 @@ static float const scaleDuration = 0.2f;
     }
 }
 
+- (void)setIsInProgress:(BOOL)isInProgress {
+    _isInProgress = isInProgress;
+    if ([self.delegate respondsToSelector:@selector(captureButton:recordingStateChanged:)]) {
+        [self.delegate captureButton:self recordingStateChanged:isInProgress];
+    }
+}
+
+#pragma mark UIGestureRecognizerDelegate
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldBeRequiredToFailByGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    if ([gestureRecognizer isKindOfClass:[UILongPressGestureRecognizer class]] && [otherGestureRecognizer isKindOfClass:[UITapGestureRecognizer class]]) {
+        return YES;
+    }
+    return NO;
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    if (gestureRecognizer.view == self) {
+        return YES;
+    }
+    return NO;
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    if (gestureRecognizer.view == self) {
+        return YES;
+    }
+    return NO;
+}
 @end
