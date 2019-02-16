@@ -18,6 +18,9 @@
     return p;
 }
 
+- (double)calculate:(double)p withType:(RSAnimationFunctionType)type {
+    return p;
+}
 @end
 
 
