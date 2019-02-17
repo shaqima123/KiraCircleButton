@@ -17,6 +17,7 @@
 		4F78965520EF2AAD00359215 /* KiraCircleButtonUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F78965420EF2AAD00359215 /* KiraCircleButtonUITests.m */; };
 		4F78966420EF2B1500359215 /* KiraCircleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F78966320EF2B1500359215 /* KiraCircleButton.m */; };
 		4F95009E2216B1C000FF61E8 /* AnimationFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F95009D2216B1C000FF61E8 /* AnimationFunction.m */; };
+		4F9500B0221965ED00FF61E8 /* KiraCircleButtonTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9500AE221965ED00FF61E8 /* KiraCircleButtonTestViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,8 @@
 		4F78966320EF2B1500359215 /* KiraCircleButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KiraCircleButton.m; sourceTree = "<group>"; };
 		4F95009C2216B1C000FF61E8 /* AnimationFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimationFunction.h; sourceTree = "<group>"; };
 		4F95009D2216B1C000FF61E8 /* AnimationFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimationFunction.m; sourceTree = "<group>"; };
+		4F9500AE221965ED00FF61E8 /* KiraCircleButtonTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KiraCircleButtonTestViewController.m; sourceTree = "<group>"; };
+		4F9500AF221965ED00FF61E8 /* KiraCircleButtonTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KiraCircleButtonTestViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +116,8 @@
 				4F78963420EF2AAB00359215 /* ViewController.m */,
 				4F78966220EF2B1500359215 /* KiraCircleButton.h */,
 				4F78966320EF2B1500359215 /* KiraCircleButton.m */,
+				4F9500AF221965ED00FF61E8 /* KiraCircleButtonTestViewController.h */,
+				4F9500AE221965ED00FF61E8 /* KiraCircleButtonTestViewController.m */,
 				4F78963620EF2AAB00359215 /* Main.storyboard */,
 				4F78963920EF2AAD00359215 /* Assets.xcassets */,
 				4F78963B20EF2AAD00359215 /* LaunchScreen.storyboard */,
@@ -277,6 +282,7 @@
 				4F78964020EF2AAD00359215 /* main.m in Sources */,
 				4F78966420EF2B1500359215 /* KiraCircleButton.m in Sources */,
 				4F78963220EF2AAB00359215 /* AppDelegate.m in Sources */,
+				4F9500B0221965ED00FF61E8 /* KiraCircleButtonTestViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

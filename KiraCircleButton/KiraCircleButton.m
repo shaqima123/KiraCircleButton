@@ -18,14 +18,16 @@ static float const minLineWidth = 4.f;
 //大圆圈宽度
 static float const maxLineWidth = 8.f;
 
-//放大动画持续时
-static float const scaleDuration = 1.f;
-
-
 @interface KiraCircleButton ()<UIGestureRecognizerDelegate>
+
+@property (nonatomic, assign) float scaleDuration;
+@property (nonatomic, assign) float maxRecordTime;
 
 @property (nonatomic, strong) id<AnimationFunction> animationFunction;
 @property (nonatomic, strong) id<AnimationFunction> scaleAnimationFunction;
+
+@property (nonatomic, assign) AnimationFunctionType scaleFunctionType;
+@property (nonatomic, assign) AnimationFunctionType recordFunctionType;
 
 @property (nonatomic, strong) UITapGestureRecognizer *tapGesture;
 @property (nonatomic, strong) UILongPressGestureRecognizer *longTapGesture;
@@ -67,9 +69,14 @@ static float const scaleDuration = 1.f;
 }
 
 - (void)setupData {
+    self.scaleDuration = 0.2f;
+    self.maxRecordTime = kCaptureButtonMaxRecordTime;
     
     self.animationFunction = [[AnimationFunctionEaseOut alloc] init];
-    self.scaleAnimationFunction = [[AnimationFunctionEaseInOut alloc] init];
+    self.scaleAnimationFunction = [[AnimationFunctionLinear alloc] init];
+    
+    self.scaleFunctionType = AnimationFunctionTypeCubic;
+    self.recordFunctionType = AnimationFunctionTypeQuadratic;
     
     self.circleFgColor = [UIColor colorWithRed:0.99 green:0.72 blue:0.04 alpha:1];
     self.circleBgColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.2];
@@ -157,8 +164,8 @@ static float const scaleDuration = 1.f;
     CGFloat toRadius = endRadius - maxLineWidth * 0.5;
     CGFloat fromRadius = startRadius - minLineWidth * 0.5;
     
-    CGFloat scalePercent = currentTime / scaleDuration;
-    CGFloat recordPercent = currentTime / kCaptureButtonMaxRecordTime;
+    CGFloat scalePercent = currentTime / self.scaleDuration;
+    CGFloat recordPercent = currentTime / self.maxRecordTime;
 
     if (scalePercent > 1) {
         scalePercent = 1;
@@ -167,8 +174,8 @@ static float const scaleDuration = 1.f;
         recordPercent = 1;
     }
 
-    scalePercent = [self.scaleAnimationFunction calculate:scalePercent withType:AnimationFunctionTypeElastic];
-    recordPercent = [self.animationFunction calculate:recordPercent withType:AnimationFunctionTypeBounce];
+    scalePercent = [self.scaleAnimationFunction calculate:scalePercent withType:self.scaleFunctionType];
+    recordPercent = [self.animationFunction calculate:recordPercent withType:self.recordFunctionType];
     
     if (recordPercent) {
         self.drawLayer.hidden = NO;
@@ -265,6 +272,118 @@ static float const scaleDuration = 1.f;
     if ([self.delegate respondsToSelector:@selector(captureButton:recordingStateChanged:)]) {
         [self.delegate captureButton:self recordingStateChanged:isInProgress];
     }
+}
+
+- (void)configureWithScaleDuration:(float)scaleDuration
+                    recordDuration:(float)recordDuration
+                  scaleAnimateKind:(NSInteger)scaleAnimateKind
+                 recordAnimateKind:(NSInteger)recordAnimateKind
+              scaleAnimateFunction:(AnimationFunctionType)scaleAnimateFunction
+             recordAnimateFunction:(AnimationFunctionType)recordAnimateFunction {
+    self.scaleDuration = scaleDuration;
+    self.maxRecordTime = recordDuration;
+    switch (scaleAnimateKind) {
+        case 0:
+        {
+            self.scaleAnimationFunction = [[AnimationFunctionLinear alloc] init];
+        }
+            break;
+        case 1:
+        {
+            self.scaleAnimationFunction = [[AnimationFunctionEaseIn alloc] init];
+        }
+            break;
+        case 2:
+        {
+            self.scaleAnimationFunction = [[AnimationFunctionEaseOut alloc] init];
+        }
+            break;
+        case 3:
+        {
+            self.scaleAnimationFunction = [[AnimationFunctionEaseInOut alloc] init];
+        }
+            break;
+        default:
+            break;
+    }
+    
+    switch (recordAnimateKind) {
+        case 0:
+        {
+            self.animationFunction = [[AnimationFunctionLinear alloc] init];
+        }
+            break;
+        case 1:
+        {
+            self.animationFunction = [[AnimationFunctionEaseIn alloc] init];
+        }
+            break;
+        case 2:
+        {
+            self.animationFunction = [[AnimationFunctionEaseOut alloc] init];
+        }
+            break;
+        case 3:
+        {
+            self.animationFunction = [[AnimationFunctionEaseInOut alloc] init];
+        }
+            break;
+        default:
+            break;
+    }
+    
+    self.scaleFunctionType = scaleAnimateFunction;
+    self.recordFunctionType = recordAnimateFunction;
+}
+
+- (NSString *)getConfigureString {
+    NSString *recordAnimateKindString = nil;
+    NSString *scaleAnimateKindString = nil;
+    NSString *recordAnimateFuncString = nil;
+    NSString *scaleAnimateFuncString = nil;
+    
+    NSArray *animationFuncArray =  @[@"Quadratic",
+                                     @"Cubic",
+                                     @"Quartic",
+                                     @"Quintic",
+                                     @"Sine",
+                                     @"Circular",
+                                     @"Exponential",
+                                     @"Elastic",
+                                     @"Back",
+                                     @"Bounce"];
+    scaleAnimateFuncString = [animationFuncArray objectAtIndex:self.scaleFunctionType];
+    recordAnimateFuncString = [animationFuncArray objectAtIndex:self.recordFunctionType];
+    
+    if ([self.animationFunction isMemberOfClass:[AnimationFunctionLinear class]]) {
+        recordAnimateKindString = @"Linear";
+        recordAnimateFuncString = @"";
+    }
+    if ([self.animationFunction isMemberOfClass:[AnimationFunctionEaseIn class]]) {
+        recordAnimateKindString = @"EaseIn";
+    }
+    if ([self.animationFunction isMemberOfClass:[AnimationFunctionEaseOut class]]) {
+        recordAnimateKindString = @"EaseOut";
+    }
+    if ([self.animationFunction isMemberOfClass:[AnimationFunctionEaseInOut class]]) {
+        recordAnimateKindString = @"EaseInOut";
+    }
+    
+    if ([self.scaleAnimationFunction isMemberOfClass:[AnimationFunctionLinear class]]) {
+        scaleAnimateKindString = @"Linear";
+        scaleAnimateFuncString = @"";
+    }
+    if ([self.scaleAnimationFunction isMemberOfClass:[AnimationFunctionEaseIn class]]) {
+        scaleAnimateKindString = @"EaseIn";
+    }
+    if ([self.scaleAnimationFunction isMemberOfClass:[AnimationFunctionEaseOut class]]) {
+        scaleAnimateKindString = @"EaseOut";
+    }
+    if ([self.scaleAnimationFunction isMemberOfClass:[AnimationFunctionEaseInOut class]]) {
+        scaleAnimateKindString = @"EaseInOut";
+    }
+    
+    return [NSString stringWithFormat:@" 放大动画时间:%f\n 录制动画时间:%f\n 放大动画函数:%@ %@\n 录制动画函数:%@ %@\n",self.scaleDuration,self.maxRecordTime,scaleAnimateKindString,scaleAnimateFuncString,recordAnimateKindString,recordAnimateFuncString];
 }
 
 #pragma mark UIGestureRecognizerDelegate

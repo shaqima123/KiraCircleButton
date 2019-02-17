@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AnimationFunction.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -60,6 +61,14 @@ static float const kCaptureButtonMaxRecordTime = 15.f;
 
 - (void)disableGesture:(Class)gestureClass;
 - (void)resetCaptureButton;
+
+- (void)configureWithScaleDuration:(float)scaleDuration
+                    recordDuration:(float)recordDuration
+                  scaleAnimateKind:(NSInteger)scaleAnimateKind
+                 recordAnimateKind:(NSInteger)recordAnimateKind
+              scaleAnimateFunction:(AnimationFunctionType)scaleAnimateFunction
+             recordAnimateFunction:(AnimationFunctionType)recordAnimateFunction;
+- (NSString *)getConfigureString;
 
 @end
 
