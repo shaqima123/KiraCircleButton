@@ -56,7 +56,7 @@ typedef NS_ENUM(NSInteger, AnimationFunctionType) {
 @interface AnimationFunctionLinear: NSObject <AnimationFunction>
 
 - (double)calculate:(double) p;
-- (double)calculate:(double)p withType:(RSAnimationFunctionType)type;
+- (double)calculate:(double)p withType:(AnimationFunctionType)type;
 
 @end
 
