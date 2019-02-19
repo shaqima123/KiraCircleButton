@@ -367,3 +367,66 @@
 }
 
 @end
+
+static const int precision = 100;
+@interface AnimationFunctionBezier()
+@property (nonatomic, assign) CGPoint point1;
+@property (nonatomic, assign) CGPoint point2;
+@property (nonatomic, strong) NSMutableArray *coords;
+
+@end
+
+@implementation AnimationFunctionBezier
+
+- (void)setupWithControlPoint1:(CGPoint)point1 controlPoint2:(CGPoint)point2 {
+    self.point1 = point1;
+    self.point2 = point2;
+    [self getCoordsArray];
+}
+
+- (CGPoint)getCoord:(double)t {
+    if (t > 1 || t < 0) {
+        return CGPointZero;
+    }
+    double _t = 1 - t;
+    double coefficient1 = 3 * t * pow(_t, 2);
+    double coefficient2 = 3 * _t * pow(t, 2);
+    double coefficient3 = pow(t, 3);
+    double px = coefficient1 * self.point1.x + coefficient2 * self.point2.x + coefficient3;
+    double py = coefficient1 * self.point1.y + coefficient2 * self.point2.y + coefficient3;
+    
+    return CGPointMake(px, py);
+}
+
+- (void)getCoordsArray {
+    double step = 1.f / (precision + 1);
+    NSMutableArray *array = @[].mutableCopy;
+    for (int t = 0; t <= precision + 1; t++) {
+        [array addObject:[NSValue valueWithCGPoint:[self getCoord:(t * step)]]];
+    }
+    self.coords = array;
+}
+
+- (double)calculate:(double)p {
+    if (p >= 1) return 1;
+    if (p <= 0) return 0;
+    double startX = 0;
+    for (int i = 0; i < self.coords.count; i++) {
+        NSValue *value = [self.coords objectAtIndex:i];
+        if (value.CGPointValue.x >= p) {
+            startX = i;
+            break;
+        }
+    }
+    CGPoint axis1 = ((NSValue *)[self.coords objectAtIndex:startX]).CGPointValue;
+    CGPoint axis2 = ((NSValue *)[self.coords objectAtIndex:startX - 1]).CGPointValue;
+    double k = (axis2.y - axis1.y)/(axis2.x - axis1.x);
+    double b = axis1.y - k * axis1.x;
+    return k * p + b;
+}
+
+- (double)calculate:(double)p withType:(AnimationFunctionType)type {
+    return [self calculate:p];
+}
+
+@end

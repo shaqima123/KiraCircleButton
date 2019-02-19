@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreGraphics/CoreGraphics.h>
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -89,6 +91,18 @@ typedef NS_ENUM(NSInteger, AnimationFunctionType) {
 @interface AnimationFunctionEaseInOut: NSObject <AnimationFunction>
 
 - (double)calculate:(double) p;
+- (double)calculate:(double)p withType:(AnimationFunctionType)type;
+
+@end
+
+
+/**
+ 三次贝塞尔曲线
+ */
+@interface AnimationFunctionBezier: NSObject <AnimationFunction>
+
+- (void)setupWithControlPoint1:(CGPoint)point1 controlPoint2:(CGPoint)point2;
+- (double)calculate:(double)p;
 - (double)calculate:(double)p withType:(AnimationFunctionType)type;
 
 @end
