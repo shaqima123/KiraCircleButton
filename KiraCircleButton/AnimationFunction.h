@@ -13,7 +13,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM(NSInteger, AnimationFunctionType) {
-    AnimationFunctionTypeQuadratic,
+    AnimationFunctionTypeDefault,//(AnimationFunctionTypeQuadratic)
     AnimationFunctionTypeCubic,
     AnimationFunctionTypeQuartic,
     AnimationFunctionTypeQuintic,
@@ -25,6 +25,12 @@ typedef NS_ENUM(NSInteger, AnimationFunctionType) {
     AnimationFunctionTypeBounce
 };
 
+typedef NS_ENUM(NSInteger, AnimationType) {
+    AnimationTypeLinear,
+    AnimationTypeEaseIn,
+    AnimationTypeEaseOut,
+    AnimationTypeEaseInOut
+};
 
 @protocol AnimationFunction <NSObject>
 
@@ -38,17 +44,6 @@ typedef NS_ENUM(NSInteger, AnimationFunctionType) {
  */
 - (double)calculate:(double) p;
 
-@optional
-
-/**
- 缓动函数
-
- @param p 传入参数，为当前进度除以持续时间的线性百分比
- @param type 使用算法的类型
- @return 函数处理之后的进度百分比
- */
-- (double)calculate:(double)p withType:(AnimationFunctionType)type;
-
 @end
 
 
@@ -58,7 +53,6 @@ typedef NS_ENUM(NSInteger, AnimationFunctionType) {
 @interface AnimationFunctionLinear: NSObject <AnimationFunction>
 
 - (double)calculate:(double) p;
-- (double)calculate:(double)p withType:(AnimationFunctionType)type;
 
 @end
 
@@ -68,8 +62,9 @@ typedef NS_ENUM(NSInteger, AnimationFunctionType) {
  */
 @interface AnimationFunctionEaseIn: NSObject <AnimationFunction>
 
+@property (nonatomic, assign) AnimationFunctionType funcType;
+
 - (double)calculate:(double) p;
-- (double)calculate:(double)p withType:(AnimationFunctionType)type;
 
 @end
 
@@ -79,8 +74,9 @@ typedef NS_ENUM(NSInteger, AnimationFunctionType) {
  */
 @interface AnimationFunctionEaseOut: NSObject <AnimationFunction>
 
+@property (nonatomic, assign) AnimationFunctionType funcType;
+
 - (double)calculate:(double) p;
-- (double)calculate:(double)p withType:(AnimationFunctionType)type;
 
 @end
 
@@ -90,21 +86,16 @@ typedef NS_ENUM(NSInteger, AnimationFunctionType) {
  */
 @interface AnimationFunctionEaseInOut: NSObject <AnimationFunction>
 
+@property (nonatomic, assign) AnimationFunctionType funcType;
+
 - (double)calculate:(double) p;
-- (double)calculate:(double)p withType:(AnimationFunctionType)type;
 
 @end
 
-
-/**
- 三次贝塞尔曲线
- */
 @interface AnimationFunctionBezier: NSObject <AnimationFunction>
 
 - (void)setupWithControlPoint1:(CGPoint)point1 controlPoint2:(CGPoint)point2;
 - (double)calculate:(double)p;
-- (double)calculate:(double)p withType:(AnimationFunctionType)type;
 
 @end
-
 NS_ASSUME_NONNULL_END

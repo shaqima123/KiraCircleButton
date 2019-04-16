@@ -8,19 +8,16 @@
 
 #import "AnimationFunction.h"
 
+
 /**
  线性动画
  */
 @implementation AnimationFunctionLinear
 
 - (double)calculate:(double) p {
-    NSLog(@"animate function is Linear");
     return p;
 }
 
-- (double)calculate:(double)p withType:(AnimationFunctionType)type {
-    return p;
-}
 @end
 
 
@@ -30,13 +27,12 @@
 @implementation AnimationFunctionEaseIn
 
 - (double)calculate:(double) p {
-    return [self calculate:p withType:AnimationFunctionTypeQuadratic];
+    return [self calculate:p withType:self.funcType];
 }
 
 - (double)calculate:(double)p withType:(AnimationFunctionType)type {
-    NSLog(@"animate function is EaseIn");
     switch (type) {
-        case AnimationFunctionTypeQuadratic:
+        case AnimationFunctionTypeDefault:
         {
             return p * p;
         }
@@ -121,13 +117,12 @@
 @implementation AnimationFunctionEaseOut
 
 - (double)calculate:(double) p {
-    return [self calculate:p withType:AnimationFunctionTypeQuadratic];
+    return [self calculate:p withType:self.funcType];
 }
 
 - (double)calculate:(double)p withType:(AnimationFunctionType)type {
-    NSLog(@"animate function is EaseOut");
     switch (type) {
-        case AnimationFunctionTypeQuadratic:
+        case AnimationFunctionTypeDefault:
         {
             return -(p * (p - 2));
         }
@@ -211,13 +206,12 @@
 @implementation AnimationFunctionEaseInOut
 
 - (double)calculate:(double) p {
-    return [self calculate:p withType:AnimationFunctionTypeQuadratic];
+    return [self calculate:p withType:self.funcType];
 }
 
 - (double)calculate:(double)p withType:(AnimationFunctionType)type {
-    NSLog(@"animate function is EaseInEaseOut");
     switch (type) {
-        case AnimationFunctionTypeQuadratic:
+        case AnimationFunctionTypeDefault:
         {
             if(p < 0.5)
             {
@@ -423,10 +417,6 @@ static const int precision = 100;
     double k = (axis2.y - axis1.y)/(axis2.x - axis1.x);
     double b = axis1.y - k * axis1.x;
     return k * p + b;
-}
-
-- (double)calculate:(double)p withType:(AnimationFunctionType)type {
-    return [self calculate:p];
 }
 
 @end

@@ -76,7 +76,7 @@ static float const maxLineWidth = 8.f;
     self.scaleAnimationFunction = [[AnimationFunctionLinear alloc] init];
     
     self.scaleFunctionType = AnimationFunctionTypeCubic;
-    self.recordFunctionType = AnimationFunctionTypeQuadratic;
+    self.recordFunctionType = AnimationFunctionTypeDefault;
     
     self.circleFgColor = [UIColor colorWithRed:0.99 green:0.72 blue:0.04 alpha:1];
     self.circleBgColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.2];
@@ -174,8 +174,8 @@ static float const maxLineWidth = 8.f;
         recordPercent = 1;
     }
 
-    scalePercent = [self.scaleAnimationFunction calculate:scalePercent withType:self.scaleFunctionType];
-    recordPercent = [self.animationFunction calculate:recordPercent withType:self.recordFunctionType];
+    scalePercent = [self.scaleAnimationFunction calculate:scalePercent];
+    recordPercent = [self.animationFunction calculate:recordPercent];
     
     if (recordPercent) {
         self.drawLayer.hidden = NO;
@@ -407,5 +407,9 @@ static float const maxLineWidth = 8.f;
         return YES;
     }
     return NO;
+}
+
+- (void)dealloc {
+    NSLog(@"kira button dealloc..");
 }
 @end

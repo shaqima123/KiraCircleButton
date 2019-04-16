@@ -16,8 +16,10 @@
 		4F78964A20EF2AAD00359215 /* KiraCircleButtonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F78964920EF2AAD00359215 /* KiraCircleButtonTests.m */; };
 		4F78965520EF2AAD00359215 /* KiraCircleButtonUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F78965420EF2AAD00359215 /* KiraCircleButtonUITests.m */; };
 		4F78966420EF2B1500359215 /* KiraCircleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F78966320EF2B1500359215 /* KiraCircleButton.m */; };
-		4F95009E2216B1C000FF61E8 /* AnimationFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F95009D2216B1C000FF61E8 /* AnimationFunction.m */; };
 		4F9500B0221965ED00FF61E8 /* KiraCircleButtonTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9500AE221965ED00FF61E8 /* KiraCircleButtonTestViewController.m */; };
+		62091C2A2265C3CC00A1BBE4 /* UIView+Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = 62091C292265C3CC00A1BBE4 /* UIView+Animation.m */; };
+		62091C322265C5FF00A1BBE4 /* AnimationFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 62091C302265C5FF00A1BBE4 /* AnimationFunction.m */; };
+		62091C352265C73300A1BBE4 /* RSWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 62091C342265C73300A1BBE4 /* RSWeakProxy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,10 +58,14 @@
 		4F78965620EF2AAD00359215 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F78966220EF2B1500359215 /* KiraCircleButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KiraCircleButton.h; sourceTree = "<group>"; };
 		4F78966320EF2B1500359215 /* KiraCircleButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KiraCircleButton.m; sourceTree = "<group>"; };
-		4F95009C2216B1C000FF61E8 /* AnimationFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimationFunction.h; sourceTree = "<group>"; };
-		4F95009D2216B1C000FF61E8 /* AnimationFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimationFunction.m; sourceTree = "<group>"; };
 		4F9500AE221965ED00FF61E8 /* KiraCircleButtonTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KiraCircleButtonTestViewController.m; sourceTree = "<group>"; };
 		4F9500AF221965ED00FF61E8 /* KiraCircleButtonTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KiraCircleButtonTestViewController.h; sourceTree = "<group>"; };
+		62091C282265C3CC00A1BBE4 /* UIView+Animation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Animation.h"; sourceTree = "<group>"; };
+		62091C292265C3CC00A1BBE4 /* UIView+Animation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Animation.m"; sourceTree = "<group>"; };
+		62091C302265C5FF00A1BBE4 /* AnimationFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationFunction.m; sourceTree = "<group>"; };
+		62091C312265C5FF00A1BBE4 /* AnimationFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationFunction.h; sourceTree = "<group>"; };
+		62091C332265C73300A1BBE4 /* RSWeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSWeakProxy.h; sourceTree = "<group>"; };
+		62091C342265C73300A1BBE4 /* RSWeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSWeakProxy.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +116,11 @@
 		4F78962F20EF2AAB00359215 /* KiraCircleButton */ = {
 			isa = PBXGroup;
 			children = (
+				62091C332265C73300A1BBE4 /* RSWeakProxy.h */,
+				62091C342265C73300A1BBE4 /* RSWeakProxy.m */,
+				62091C312265C5FF00A1BBE4 /* AnimationFunction.h */,
+				62091C302265C5FF00A1BBE4 /* AnimationFunction.m */,
+				62091C272265C3B000A1BBE4 /* Category */,
 				4F78963020EF2AAB00359215 /* AppDelegate.h */,
 				4F78963120EF2AAB00359215 /* AppDelegate.m */,
 				4F78963320EF2AAB00359215 /* ViewController.h */,
@@ -123,8 +134,6 @@
 				4F78963B20EF2AAD00359215 /* LaunchScreen.storyboard */,
 				4F78963E20EF2AAD00359215 /* Info.plist */,
 				4F78963F20EF2AAD00359215 /* main.m */,
-				4F95009C2216B1C000FF61E8 /* AnimationFunction.h */,
-				4F95009D2216B1C000FF61E8 /* AnimationFunction.m */,
 			);
 			path = KiraCircleButton;
 			sourceTree = "<group>";
@@ -145,6 +154,15 @@
 				4F78965620EF2AAD00359215 /* Info.plist */,
 			);
 			path = KiraCircleButtonUITests;
+			sourceTree = "<group>";
+		};
+		62091C272265C3B000A1BBE4 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				62091C282265C3CC00A1BBE4 /* UIView+Animation.h */,
+				62091C292265C3CC00A1BBE4 /* UIView+Animation.m */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,12 +295,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4F95009E2216B1C000FF61E8 /* AnimationFunction.m in Sources */,
+				62091C2A2265C3CC00A1BBE4 /* UIView+Animation.m in Sources */,
 				4F78963520EF2AAB00359215 /* ViewController.m in Sources */,
 				4F78964020EF2AAD00359215 /* main.m in Sources */,
 				4F78966420EF2B1500359215 /* KiraCircleButton.m in Sources */,
+				62091C322265C5FF00A1BBE4 /* AnimationFunction.m in Sources */,
 				4F78963220EF2AAB00359215 /* AppDelegate.m in Sources */,
 				4F9500B0221965ED00FF61E8 /* KiraCircleButtonTestViewController.m in Sources */,
+				62091C352265C73300A1BBE4 /* RSWeakProxy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

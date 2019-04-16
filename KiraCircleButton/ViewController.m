@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import "KiraCircleButton.h"
 #import "KiraCircleButtonTestViewController.h"
+#import "UIView+Animation.h"
+
 
 @interface ViewController ()<
 KiraCircleButtonTestViewControllerDelegate,
@@ -17,6 +19,10 @@ KiraCircleButtonDelegate>
 @property (nonatomic, strong) KiraCircleButton *button;
 @property (nonatomic, strong) UIButton *animationConfigureButton;
 @property (nonatomic, strong) UILabel *configureLabel;
+
+
+//for UIView+Animation test
+@property (nonatomic, strong) UIView *testView;
 
 @end
 
@@ -29,7 +35,20 @@ KiraCircleButtonDelegate>
     [self configureLabel];
     [self.view setBackgroundColor:[UIColor blackColor]];
     [self.view addSubview:self.button];
+    
+//    [self test];
     // Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)test {
+    self.testView = [[UIView alloc]initWithFrame:CGRectMake(100, 100, 50, 50)];
+    self.testView.backgroundColor = [UIColor redColor];
+    [self.view addSubview:self.testView];
+    [self.testView rs_addAnimationToProperty:@"frame.origin.x" endValue:@300 duration:2.f animationType:AnimationTypeEaseInOut animationFunctionType:AnimationFunctionTypeBounce];
+    [self.testView rs_startAnimationDelay:3.f completed:^{
+        [self.button removeFromSuperview];
+        self.button = nil;
+    }];
 }
 
 - (UILabel *)configureLabel {
@@ -81,6 +100,5 @@ KiraCircleButtonDelegate>
                              recordAnimateFunction:function2];
     [self.configureLabel setText:[self.button getConfigureString]];
 }
-
 
 @end
